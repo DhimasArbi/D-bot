@@ -95,7 +95,7 @@ async def afk_on_pm(sender):
                     await sender.reply("I'm AFK right now."
                                         f"\nReason: `{AFKREASON}`")
                 else:
-                    await mention.reply(f"I'm AFK right now. \n'{str(choice(AFKSTR))}'")
+                    await sender.reply(f"I'm AFK right now. \n'{str(choice(AFKSTR))}'")
                 USERS.update({sender.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
             elif apprv and sender.sender_id in USERS:
@@ -104,7 +104,7 @@ async def afk_on_pm(sender):
                         await sender.reply("I'm still AFK."
                                             f"\nReason: `{AFKREASON}`")
                     else:
-                        await mention.reply(f"I'm still AFK. \n'{str(choice(AFKSTR))}'")
+                        await sender.reply(f"I'm still AFK. \n'{str(choice(AFKSTR))}'")
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
                 else:
