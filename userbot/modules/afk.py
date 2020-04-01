@@ -53,19 +53,19 @@ async def mention_afk(mention):
         if ISAFK:
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply("I'm AFK right now."
-                                        f"\nReason: `{AFKREASON}`")
+                    await mention.reply(f"I'm AFK right now.\
+                        \nReason: `{AFKREASON}`")
                 else:
-                    await mention.reply(f"I'm AFK right now. \n'{str(choice(AFKSTR))}'")
+                    await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply("I'm still AFK."
-                                            f"\nReason: `{AFKREASON}`")
+                        await mention.reply(f"I'm still AFK.\
+                            \nReason: `{AFKREASON}`")
                     else:
-                        await mention.reply(f"I'm still AFK. \n'{str(choice(AFKSTR))}'")
+                        await mention.reply(str(choice(AFKSTR)))
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
                 else:
@@ -92,19 +92,19 @@ async def afk_on_pm(sender):
         if apprv and ISAFK:
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply("I'm AFK right now."
-                                        f"\nReason: `{AFKREASON}`")
+                    await sender.reply(f"I'm AFK right now.\
+                    \nReason: `{AFKREASON}`")
                 else:
-                    await sender.reply(f"I'm AFK right now. \n'{str(choice(AFKSTR))}'")
+                    await sender.reply(str(choice(AFKSTR)))
                 USERS.update({sender.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await sender.reply("I'm still AFK."
-                                            f"\nReason: `{AFKREASON}`")
+                        await sender.reply(f"I'm still AFK.\
+                        \nReason: `{AFKREASON}`")
                     else:
-                        await sender.reply(f"I'm still AFK. \n'{str(choice(AFKSTR))}'")
+                        await sender.reply(str(choice(AFKSTR)))
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
                 else:
@@ -121,8 +121,8 @@ async def set_afk(afk_e):
     global AFKREASON
     if string:
         AFKREASON = string
-        await afk_e.edit("Going AFK!"
-                        f"\nReason: `{string}`")
+        await afk_e.edit(f"Going AFK!\
+        \nReason: `{string}`")
     else:
         await afk_e.edit("Going AFK!")
     if BOTLOG:
